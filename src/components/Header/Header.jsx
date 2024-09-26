@@ -1,6 +1,8 @@
+import './Header.css'
 import { Link } from "react-router-dom";
+import LogoNv from '../../assets/images/LogoNv.png'
 
-const Header = ({goto, title, logo}) => {
+const Header = ({ goto, title, logo }) => {
 
     return (
         <div className="
@@ -11,7 +13,7 @@ const Header = ({goto, title, logo}) => {
                 <span className="fw-bold h2">{title}</span>
             </div>
             <div>
-                <img src={logo} alt="logo" />
+                <img src={LogoNv} className="logo_header_read" />
             </div>
         </div>
     )

@@ -15,6 +15,7 @@ const create = data => {
     formData.append('email', data.email);
     formData.append('telefone', data.telefone);
     formData.append('texto', data.texto);
+    formData.append('statusMensagem', data.statusMensagem);
 
     return http.mainInstance.post(API_URL + "create", formData);
 };

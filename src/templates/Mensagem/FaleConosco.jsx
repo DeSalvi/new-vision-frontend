@@ -43,22 +43,7 @@ const FaleConosco = () => {
 
 
     return (
-        <><div class="Quem">
-            <div class="txtqm">
-                <h1>Quem somos:</h1>
-                <h2>
-                    Uma nova loja online especializada em
-                    materiais para basquete oferecemos uma ampla seleção de produtos, desde bolas de alta performance até
-                    calçados e acessórios essenciais para treinamento. Inspirados pela paixão pelo esporte e pela inovação
-                    digital, nos dedicamos a proporcionar uma experiência de compra conveniente e de alta qualidade para
-                    todos os amantes do basquete no Brasil. Com um site e um app intuitivo e um compromisso com o serviço
-                    e com a satisfação do cliente.
-                </h2>
-            </div>
-            <div>
-                <img src="assets/clarck.jpg" />
-            </div>
-        </div>
+        
         <div className="d-flex justify-content-center">
                 <form className="form-fale row g-2 rounded-2 shadow" onSubmit={handleSubmit}>
                     <p className="h3 text-center">Fale Conosco</p>
@@ -106,7 +91,7 @@ const FaleConosco = () => {
                         </div>
                     )}
                 </form>
-            </div></>
+            </div>
     )
 }
 

@@ -1,4 +1,7 @@
 import './footer.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -22,7 +25,7 @@ const Footer = () => {
 
 
                 <div className="cop" style={{ backgroundColor: 'black' }}>
-                    © 2024 Copyright: <div><a className="cadbtn" href="Login.html">NEW VISION STORE</a></div>
+                    © 2024 Copyright: <div><Link className="cadbtn" to={"/loginnv"}>NEW VISION STORE</Link></div>
                 </div>
             </footer>
         </div>

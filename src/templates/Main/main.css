@@ -8,7 +8,7 @@
     justify-content: center;
     text-align: center;
     font-size: 40px;
-    color: whitesmoke;
+    color: black;
     font-style: italic;
     height: 700px;
 }
@@ -39,11 +39,13 @@
     color: black;
     text-align: center;
     margin: 30px;
+    justify-content: center;
+    align-content: center;
 }
 .card-img-top {
     height: 350px;
     width: 350px;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .containers {
@@ -52,6 +54,8 @@
     grid-gap: 60px 20px;
     margin-left: 10%;
     margin-right: 10%;
+    align-items: center;
+    justify-content: center;
 }
 
 .btnj {
@@ -99,6 +103,7 @@
 
 .txtqm {
     margin: 20px;
+    color: black;
 }
 
 /*Fale Conosco*/
@@ -125,6 +130,7 @@
 
 .txtfale {
     vertical-align: top;
+    color: black;
 }
 
 .form-fale {
@@ -133,7 +139,9 @@
     padding: 20px;
     margin: 10px;
     background-color: floralwhite;
-    border-radius: 10px
+    border-radius: 10px;
+    color: black;
+    
 }
 
 /*Onde Estamos*/
@@ -148,46 +156,4 @@
     text-align: center;
 }
 
-/*Container Footer*/
-.fullfoot {
-    width: 100%;
-    position: absolute;
-    left: 0;
-}
 
-.containerfooter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top:0px;
-    width: 100%;
-}
-
-.btnf {
-    margin: 20px;
-    border-radius: 100%;
-    padding: 10px;
-    border-style: hidden;
-    color: white;
-    height: 44px;
-    width: 44px;
-}
-
-.cop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-
-/*Link Cadastro Funcionario*/
-.cadbtn {
-    color: white;
-    text-decoration: none;
-    margin-left: 3px;
-}
-
-.cadbtn:hover {
-    color: white;
-    text-decoration: none;
-}

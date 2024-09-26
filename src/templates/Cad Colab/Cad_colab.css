@@ -33,9 +33,9 @@ body {
     font-style: italic;
     font-weight: bold;
     justify-content: center;
+    align-content: center;
 }
-.logbtn{
-    display: inline-flex;
+.btncad{
     padding: 7px 14px;
     background-color: black;
     color: white;
@@ -44,14 +44,14 @@ body {
     margin-top: 15px;
     font-weight: bold;
 }
-.backbtn{
-    display: inline-flex;
+.btnvoltar{
     padding: 7px 14px;
-    background-color: #FF0000;
-    border-color: #FF0000;
-    color: white;
+    background-color: yellow;
+    border-color: yellow;
+    color: black;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 15px;
     font-weight: bold;
 }
+

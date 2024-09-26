@@ -7,13 +7,15 @@ import luka from '../../assets/images/luka.jpg'
 import bola from '../../assets/images/Bola_wilson.jpg'
 import { useState } from "react"
 import MensagemService from "../../services/MensagemService"
+import Footer from '../../components/Footer/Footer'
 
 const Main = () => {
     const objectValues = {
         email: "",
         emissorMensagem: "",
         texto: "",
-        telefone: ""
+        telefone: "",
+        statusMensagem:"",
     };
     const [mensagem, setMensagem] = useState(objectValues);
     const [formData, setFormData] = useState({});
@@ -81,121 +83,124 @@ const Main = () => {
                     <img src={clarck} />
                 </div>
             </div>
-            <section className="box">
-                <div className="title" id="prods">
-                    <h1>Produtos:</h1>
-                </div>
-                <div className="prodrow">
-                    <div className="containers">
-                        <div className="Produtos">
-                            <div>
+            <div className="title" id="prods">
+                <h1>Destaques:</h1>
+            </div>
 
-                                <img className="card-img-top" src={lebronXX} />
-                                <div className="card-body">
-                                    <div className="titleprod">
+            <div className="containers">
+                <div className="Produtos">
+                    <div>
 
-                                        <h4>Nike Lebron XX "The Debut"</h4>
+                        <img className="card-img-top" src={lebronXX} />
+                        <div className="card-body">
+                            <div className="titleprod">
 
-                                        <h4>R$949,99</h4>
-                                    </div>
-                                </div>
+                                <h4>Nike Lebron XX "The Debut"</h4>
 
-                                <div className="card-footer">
-                                    <div><a className="btnj" href="prod_tenis.html">Ver Produto</a></div>
-                                </div>
+                                <h4>R$949,99</h4>
                             </div>
                         </div>
-                        <div className="Produtos">
-                            <div>
 
-                                <img className="card-img-top" src={bola} />
-                                <div className="card-body">
-                                    <div className="titleprod">
-
-                                        <h4>Bola Wilson NBA</h4>
-                                        <h4>R$159,90</h4>
-                                    </div>
-                                </div>
-
-                                <div className="card-footer">
-                                    <div><a className="btnj" href="prod_bola.html">Ver Produto</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="Produtos">
-                            <div>
-
-                                <img className="card-img-top" src={bullsjersey} />
-                                <div className="card-body">
-                                    <div className="titleprod">
-
-                                        <h4>Bulls Classic Jersey MJ</h4>
-
-                                        <h4>R$1199.90</h4>
-                                    </div>
-                                </div>
-
-                                <div className="card-footer">
-                                    <div><a className="btnj" href="prod_jersey.html">Ver Produto</a></div>
-                                </div>
-                            </div>
+                        <div className="card-footer">
+                            <div><a className="btnj" href="prod_tenis.html">Ver Produto</a></div>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div className="Produtos">
+                    <div>
+
+                        <img className="card-img-top" src={bola} />
+                        <div className="card-body">
+                            <div className="titleprod">
+
+                                <h4>Bola Wilson NBA</h4>
+                                <h4>R$159,90</h4>
+                            </div>
+                        </div>
+
+                        <div className="card-footer">
+                            <div><a className="btnj" href="prod_bola.html">Ver Produto</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="Produtos">
+                    <div>
+
+                        <img className="card-img-top" src={bullsjersey} />
+                        <div className="card-body">
+                            <div className="titleprod">
+
+                                <h4>Bulls Classic Jersey MJ</h4>
+                                <h4>R$1199.90</h4>
+                            </div>
+                        </div>
+
+                        <div className="card-footer">
+                            <div><a className="btnj" href="prod_jersey.html">Ver Produto</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="Fale">
                 <div>
                     <img src={luka} />
                 </div>
                 <div id="txtfale">
-                        <div className="d-flex justify-content-center">
-                            <form className="form-fale row g-2 rounded-2 shadow" onSubmit={handleSubmit}>
-                                <p className="h3 text-center">Fale Conosco</p>
-                                {!successful && (
-                                    <>
-                                        <div className="col-md-12 mb-3">
-                                            <label htmlFor="inputEmissor" className="form-label mb-1 fw-bold">Nome:</label>
-                                            <input type="text" className="form-control" id="inputEmissor" required
-                                                name="emissorMensagem"
-                                                value={formData.emissorMensagem || ""}
-                                                onChange={handleChange} />
-                                        </div>
-                                        <div className="col-md-12 mb-3">
-                                            <label htmlFor="inputEmail" className="form-label mb-1 fw-bold">Email:</label>
-                                            <input type="email" className="form-control" id="inputEmail" required
-                                                name="email"
-                                                value={formData.email || ""}
-                                                onChange={handleChange} />
-                                        </div>
-                                        <div className="col-md-12 mb-3">
-                                            <label htmlFor="inputTelefone" className="form-label mb-1 fw-bold">Telefone *(opcional):</label>
-                                            <input type="text" className="form-control" id="inputTelefone"
-                                                name="telefone"
-                                                value={formData.telefone || ""}
-                                                onChange={handleChange} />
-                                        </div>
-                                        <div className="col-md-12 mb-1">
-                                            <label htmlFor="inputTexto" className="form-label mb-1 fw-bold">Mensagem:</label>
-                                            <textarea rows={5} className="form-control" id="inputTexto" required
-                                                name="texto"
-                                                value={formData.texto || ""}
-                                                onChange={handleChange}>
-                                            </textarea>
-                                        </div>
-                                        <div className="col-md-12 mb-1 d-flex flex-row-reverse">
-                                            <button className="btn btn-primary">Enviar</button>
-                                        </div>
-                                    </>
-                                )}
-                                {message && (
-                                    <div className="m-1">
-                                        <div className={"text-center h4 fst-italic py-4 rounded-2 border border-5 " + (successful ? "border-success" : "border-danger")}>
-                                            {message}
-                                        </div>
+                    <div className="d-flex justify-content-center">
+                        <form className="form-fale row g-2 rounded-2 shadow " onSubmit={handleSubmit}>
+                            <a href="#faleconosco" className="h3 text-center">Fale Conosco</a>
+                            {!successful && (
+                                <>
+                                    <div className="col-md-12 mb-3">
+                                        <label htmlFor="inputEmissor" className="form-label mb-1 fw-bold">Nome:</label>
+                                        <input type="text" className="form-control" id="inputEmissor" required
+                                            name="emissorMensagem"
+                                            value={formData.emissorMensagem || ""}
+                                            onChange={handleChange} />
                                     </div>
-                                )}
-                            </form>
-                        </div>
+                                    <div className="col-md-12 mb-3">
+                                        <label htmlFor="inputEmail" className="form-label mb-1 fw-bold">Email:</label>
+                                        <input type="email" className="form-control" id="inputEmail" required
+                                            name="email"
+                                            value={formData.email || ""}
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className="col-md-12 mb-3">
+                                        <label htmlFor="inputTelefone" className="form-label mb-1 fw-bold">Telefone *(opcional):</label>
+                                        <input type="text" className="form-control" id="inputTelefone"
+                                            name="telefone"
+                                            value={formData.telefone || ""}
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className="col-md-12 mb-1">
+                                        <label htmlFor="inputTexto" className="form-label mb-1 fw-bold">Mensagem:</label>
+                                        <textarea rows={4} className="form-control" id="inputTexto" required
+                                            name="texto"
+                                            value={formData.texto || ""}
+                                            onChange={handleChange}>
+                                        </textarea>
+                                    </div>
+                                    <div className="col-md-12 mb-3">
+                                        <label htmlFor="inputstatusMensagem" className="form-label mb-1 fw-bold">Sugestão, Elogio ou Crítica?:</label>
+                                        <input type="text" className="form-control" id="inputstatusMensagem"
+                                            name="statusMensagem"
+                                            value={formData.statusMensagem || ""}
+                                            onChange={handleChange} />
+                                    </div>
+                                    <div className="col-md-12 mb-1 d-flex flex-row-reverse">
+                                        <button className="btn btn-primary">Enviar</button>
+                                    </div>
+                                </>
+                            )}
+                            {message && (
+                                <div className="m-1">
+                                    <div className={"text-center h4 fst-italic py-4 rounded-2 border border-5 " + (successful ? "border-success" : "border-danger")}>
+                                        {message}
+                                    </div>
+                                </div>
+                            )}
+                        </form>
+                    </div>
 
 
 
@@ -214,33 +219,11 @@ const Main = () => {
                 <div className='d-flex justify-content-around align-items-center'>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.560411723444!2d-46.8923559238854!3d-23.512337959794504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03e63bc7a06d%3A0xc14462a7d6d04032!2sITB%20Bras%C3%ADlio%20Flores%20de%20Azevedo%20(FIEB)!5e0!3m2!1spt-BR!2sbr!4v1717680155426!5m2!1spt-BR!2sbr"
-                        width="600" height="450" style={{ border: 0, margin: 30}} allowFullScreen="" loading="lazy"
+                        width="600" height="450" style={{ border: 0, margin: 30 }} allowFullScreen="" loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <div className="fullfoot">
-                <footer style={{ backgroundColor: 'black' }}>
-                    <div className="containerfooter">
-                        <button type="button" className="btnf" style={{ background: 'linear-gradient(#f9ce34,#ee2a7b,#6228d7)' }}>
-                            <i className="bi bi-instagram"></i>
-                        </button>
-                        <button type="button" className="btnf" style={{ backgroundColor: 'rgb(29, 161, 242)' }}>
-                            <i className="bi bi-twitter"></i>
-                        </button>
-                        <button type="button" className="btnf" style={{ backgroundColor: 'rgb(66, 103, 178)' }}>
-                            <i className="bi bi-facebook"></i>
-                        </button>
-                        <button type="button" className="btnf" style={{ backgroundColor: 'rgb(37, 211, 102)' }}>
-                            <i className="bi bi-whatsapp"></i>
-                        </button>
-                    </div>
-
-
-                    <div className="cop" style={{ backgroundColor: 'black' }}>
-                        © 2024 Copyright: <div><a className="cadbtn" href="Login.html">NEW VISION STORE</a></div>
-                    </div>
-                </footer>
-            </div>
+            <Footer />
         </div>
     )
 }

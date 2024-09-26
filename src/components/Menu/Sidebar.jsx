@@ -21,18 +21,18 @@ const Sidebar = () => {
 
     return (
         <>
-            {currentUser ?
+            {/* currentUser ? */}
                 <div className="sidebar">
                     <form onSubmit={logout} className="d-flex flex-column justify-content-around align-items-center m-1 py-2 border-bottom rounded">
-                        <img src={currentUser.foto ? currentUser.foto : perfil} alt="logo" className="mt-2 w-25" />
+                        <img src={perfil} alt="logo" className="mt-2 w-25" />
                         <div className="my-2">
-                            <span className="fw-bold fst-italic">{currentUser.nome}</span>
+                            <span className="fw-bold fst-italic">{"nome"}</span>
                         </div>
                         <div>
                             <button className="btn btn-sm btn-warning py-1 px-2 mx-1 fw-bold h5 text-danger rounded shadow">
                                 <i className="bi bi-box-arrow-left"></i> Sair
                             </button>
-                            <button type="button" onClick={() => editar(currentUser.id)}
+                            <button type="button" onClick={() => editar(1)}
                                 className="btn btn-sm btn-success py-1 px-2 mx-1 fw-bold h5 rounded shadow ">
                                 Abrir <i className="bi bi-person-gear"></i>
                             </button>
@@ -40,13 +40,13 @@ const Sidebar = () => {
                     </form>
 
                     <nav className="nav flex-column">
-                        <Link className="nav-link" aria-current="page" to={'/home'}>Dashboard</Link>
-                        <Link className="nav-link" to={'/mensagem'}>Mensagem</Link>
-                        <Link className="nav-link" to={'/usuario'}>Usuário</Link>
+                        <Link className="nav-link" aria-current="page" to={'/colab'}>Colaboradores</Link>
+                        <Link className="nav-link" to={'/msg'}>Mensagem</Link>
+                        <Link className="nav-link" to={'/prodhome'}>Produtos</Link>
                     </nav>
-                </div> :
+                </div> {/* :
                 <></>
-            }
+            } */}
         </>
     )
 }
