@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import FaleConosco from '../Mensagem/FaleConosco'
 import './App.css'
 
 function App() {
@@ -25,14 +24,10 @@ function App() {
               <li className="nav-item">
                 <a className="nav-link" href="#">Quem Somos</a>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={'/faleconosco'}>Fale Conosco</Link>
-              </li>
             </ul>
           </div>
         </div>
       </nav>
-     <FaleConosco />
 
       <footer>
         <Link to={'/login'}

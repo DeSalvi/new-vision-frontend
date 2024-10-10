@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from '../../assets/images/system-logo_128_x_128.png';
+import LogoNv from "../../assets/images/LogoNv.png";
 import UsuarioService from "../../services/UsuarioService";
 import './Login.css';
 
@@ -9,11 +9,11 @@ const Login = () => {
     const navigate = useNavigate();
 
     const goto = () => {
-        navigate("/home");
+        navigate("/mainadm");
     }
 
     const backto = () => {
-        navigate("/");
+        navigate("/main");
     }
 
     const [formData, setFormData] = useState({});
@@ -33,7 +33,7 @@ const Login = () => {
         e.preventDefault();
         setMessage("");
 
-        UsuarioService.signin(formData.email, formData.password).then(
+        UsuarioService.signin(formData.re, formData.password).then(
             () => {
                 const userJson = localStorage.getItem("user");
                 const user = JSON.parse(userJson || '{}');
@@ -61,26 +61,26 @@ const Login = () => {
 
     return (
         <div className="container">
-            <form action="" className="login-form"  onSubmit={handleSubmit}>
-                <div className="login-logo">
-                    <img src={logo} alt="logo" />
-                </div>
+            <div className="logo_header">
+                <Link to={"/main"}><img src={LogoNv} className="logo_header" /></Link>
+            </div>
+            <form action="" className="login-form" onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
-                    <input type="email" id="email" className="form-control text-center fw-medium shadow" 
-                        name="email"
-                        value={formData.email || ""}
+                    <label htmlFor="re" className="form-label mb-0 fw-bold">Re:</label>
+                    <input type="text" id="re" className="form-control text-center fw-medium shadow"
+                        name="re"
+                        value={formData.re || ""}
                         onChange={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="password" className="form-label mb-0 fw-bold">Senha:</label>
-                    <input type="password" id="password" className="form-control text-center fw-medium shadow" 
+                    <input type="password" id="password" className="form-control text-center fw-medium shadow"
                         name="password"
                         value={formData.password || ""}
                         onChange={handleChange} />
                 </div>
                 <div className="d-flex flex-row-reverse mt-1">
-                    <p className="fw-bold fst-italic opacity-75 me-1">Esqueceu a senha?
+                    <p className="linkesq">Esqueceu a senha?
                         <Link to={'/forgotpass'}> Clique aqui.</Link>
                     </p>
                 </div>
@@ -92,9 +92,9 @@ const Login = () => {
                     )}
                 </div>
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button className="btn btn-warning fw-medium shadow" type="button"
+                    <button className="backbtn" type="button"
                         onClick={backto}>Cancelar</button>
-                    <button className="btn btn-success fw-medium shadow" type="submit">
+                    <button className="logbtn" type="submit">
                         Entrar</button>
                 </div>
             </form>

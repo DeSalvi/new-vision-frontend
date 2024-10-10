@@ -25,7 +25,7 @@ const Footer = () => {
 
 
                 <div className="cop" style={{ backgroundColor: 'black' }}>
-                    © 2024 Copyright: <div><Link className="cadbtn" to={"/loginnv"}>NEW VISION STORE</Link></div>
+                    © 2024 Copyright: <div><Link className="cadbtn" to={"/login"}>NEW VISION STORE</Link></div>
                 </div>
             </footer>
         </div>

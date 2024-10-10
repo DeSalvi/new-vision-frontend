@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import logo from '../../assets/images/system-logo_128_x_128.png';
+import logo from '../../assets/images/LogoNv.png';
 import UsuarioService from "../../services/UsuarioService";
 import './Login.css';
 
@@ -8,7 +8,7 @@ const LoginNewPass = () => {
     const objectValues = {
         id: null,
         nome: "",
-        email: ""
+        re: ""
     };
 
     const navigate = useNavigate();
@@ -64,6 +64,7 @@ const LoginNewPass = () => {
             (response) => {
                 setMessage(response.data.message);
                 setSuccessful(true);
+                console.log(response.data.message);
             },
             (error) => {
                 const respMessage =
@@ -80,21 +81,22 @@ const LoginNewPass = () => {
     };
 
     return (
+
         <div className="container">
+            <div className="logo_header">
+                <img src={logo} className="logo_header" />
+            </div>
             <form action="" className="login-form" onSubmit={handleSubmit}>
                 {!successful && (
                     <>
-                        <div className="login-logo">
-                            <img src={logo} alt="logo" />
-                        </div>
                         <div className="d-flex justify-content-center text-center px-2">
                             <p className="h5 fst-italic text-danger">O Usuário precisa Alterar a senha para ter acesso.</p>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
-                            <input type="email" id="email" readOnly className="form-control text-center fw-medium shadow"
-                                name="email"
-                                value={usuario.email || ""}
+                            <label htmlFor="re" className="form-label mb-0 fw-bold">RE:</label>
+                            <input type="text" id="re" readOnly className="form-control text-center fw-medium shadow"
+                                name="re"
+                                value={usuario.re || ""}
                                 onChange={handleChange} />
                         </div>
                         <div className="mb-2">
@@ -118,10 +120,10 @@ const LoginNewPass = () => {
                             )}
                         </div>
                         <div className="d-flex justify-content-around my-3">
-                            <button className="btn btn-warning fw-medium shadow" type="button"
-                                onClick={backto}>Cancelar</button>
                             <button className="btn btn-success fw-medium shadow" type="submit">
                                 Entrar</button>
+                            <button className="btn btn-danger fw-medium shadow" type="button"
+                                onClick={backto}>Cancelar</button>
                         </div>
                     </>
                 )}

@@ -4,7 +4,7 @@ import Sidebar from '../../components/Menu/Sidebar'
 import logo from '../../assets/images/home.png'
 import { useEffect } from "react"
 import { useState } from "react"
-import MensagemService from "../../services/MensagemService"
+import MensagemService from "../../services/MensagemService.js"
 
 const MensagemLer = () => {
 
@@ -73,7 +73,7 @@ const MensagemLer = () => {
             <Sidebar />
             <div className="p-3 w-100">
                 <Header
-                    goto={'/mensagem'}
+                    goto={'/mensagemnv'}
                     title={'Ler Mensagem'}
                     logo={logo}
                 />

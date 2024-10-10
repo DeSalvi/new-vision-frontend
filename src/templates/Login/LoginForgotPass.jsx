@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import logo from '../../assets/images/system-logo_128_x_128.png';
+import logo from "../../assets/images/LogoNv.png"
 import './Login.css';
 
 const LoginForgotPass = () => {
@@ -11,23 +11,23 @@ const LoginForgotPass = () => {
     }
 
     const backto = () => {
-        navigate("/");
+        navigate("/login");
     }
 
 
     return (
         <div className="container">
-            <form action="" className="login-form">
-                <div className="login-logo">
-                    <img src={logo} alt="logo" />
-                </div>
+            <div className="logo_header">
+                <Link to={"/main"}><img src={logo} className="logo_header" /></Link>
+            </div>
+            <form action="" className="forgotpass-form">
                 <h5 className="text-center">Recuperação de Senha</h5>
                 <div className="my-3">
-                    <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
-                    <input type="email" id="email" className="form-control text-center fw-medium shadow" />
+                    <label htmlFor="email" className="form-label mb-0 fw-bold">RE:</label>
+                    <input type="text" id="re" className="form-control text-center fw-medium shadow" minLength={6} maxLength={6} />
                 </div>
                 <div className="d-flex flex-row-reverse mt-1">
-                    <p className="fw-bold fst-italic opacity-75 me-1">Acessar o sistema:
+                    <p className="linksyst">Acessar o sistema:
                         <Link to={'/login'}> Clique aqui.</Link>
                     </p>
                 </div>
@@ -37,9 +37,9 @@ const LoginForgotPass = () => {
                     </p>
                 </div>
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button className="btn btn-warning fw-medium shadow" type="button"
+                    <button className="fgtcancel" type="button"
                         onClick={backto}>Cancelar</button>
-                    <button className="btn btn-success fw-medium shadow" type="submit"
+                    <button className="fgtconfirm" type="submit"
                         onClick={goto} >Solicitar Nova Senha</button>
                 </div>
             </form>

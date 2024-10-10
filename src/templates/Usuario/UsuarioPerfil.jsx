@@ -2,11 +2,9 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header/Header"
 import Sidebar from '../../components/Menu/Sidebar'
 import logo from '../../assets/images/home.png'
-import perfil from '../../assets/images/perfil_blz.jpg'
 import { useEffect, useRef, useState } from "react"
 import UsuarioService from "../../services/UsuarioService"
 import './Usuario.css';
-import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModal"
 
 const UsuarioPerfil = () => {
 
@@ -15,7 +13,7 @@ const UsuarioPerfil = () => {
     const objectValues = {
         id: null,
         nome: "",
-        email: "",
+        re: "",
         nivelAcesso: ""
     };
     
@@ -60,13 +58,6 @@ const UsuarioPerfil = () => {
     const goToAlterarSenha = () => {
         navigate(`/usuarioalterarsenha/` + id);
     }
-
-    /*
-        A propriedade 'value' para um campo de formulário sem um manipulador 'onChange', 
-        faz com que o campo seja renderizado como somente de leitura. 
-        Se o campo deve ser mutável, deve ser utilizada a propriedade 'defaultValue'. 
-        Caso contrário, deve ser definida 'onChange' ou 'readOnly'.
-    */
     return (
         <div className="d-flex">
             <Sidebar />
@@ -78,15 +69,6 @@ const UsuarioPerfil = () => {
                 />
                 <section className="m-1 p-1 shadow-lg">
                     <form className="form-perfil row g-2 rounded-2 shadow">
-                        <div className="col-md-12">
-                            <img src={usuario.foto ? usuario.foto : perfil} alt="..." />
-                        </div>
-                        <div className="col-md-12 text-center">
-                            <ImageUploaderModal
-                                setFile={setFile}
-                                setImage={setImage}
-                                chosenImage={chosenImage} />
-                        </div>
                         <div className="col-md-12 mb-3">
                             <label htmlFor="inputNome" className="form-label mb-1 fw-bold">Nome:</label>
                             <input type="text" className="form-control" id="inputNome"  
@@ -95,7 +77,7 @@ const UsuarioPerfil = () => {
                         <div className="col-md-12 mb-3">
                             <label htmlFor="inputEmail4" className="form-label mb-1 fw-bold">Email:</label>
                             <input type="email" className="form-control text-center" id="inputEmail4" readOnly 
-                                defaultValue={usuario.email} />
+                                defaultValue={usuario.re} />
                         </div>
 
                         <div className="col-md-6 mb-3">

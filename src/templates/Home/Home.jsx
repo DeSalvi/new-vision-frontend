@@ -33,7 +33,7 @@ const Home = () => {
                     <Sidebar />
                     <div className="p-3 w-100">
                         <Header
-                            goto={'/home'}
+                            goto={'/main'}
                             title={'Home'}
                             logo={logo}
                         />

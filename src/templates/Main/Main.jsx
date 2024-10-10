@@ -8,6 +8,7 @@ import bola from '../../assets/images/Bola_wilson.jpg'
 import { useState } from "react"
 import MensagemService from "../../services/MensagemService"
 import Footer from '../../components/Footer/Footer'
+import ProdutoService from '../../services/ProdutoService'
 
 const Main = () => {
     const objectValues = {
@@ -15,12 +16,14 @@ const Main = () => {
         emissorMensagem: "",
         texto: "",
         telefone: "",
-        statusMensagem:"",
+        statusMensagem: "",
     };
     const [mensagem, setMensagem] = useState(objectValues);
     const [formData, setFormData] = useState({});
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState();
+    const [produtos, setProdutos] = useState([]);
+
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -46,6 +49,10 @@ const Main = () => {
                 }
             )
         }
+    }
+
+    const VerProduto = (id) => {
+        navigate(`/produtoeditar/` + id)
     }
 
     return (
@@ -136,7 +143,13 @@ const Main = () => {
                         </div>
 
                         <div className="card-footer">
-                            <div><a className="btnj" href="prod_jersey.html">Ver Produto</a></div>
+                            <div>
+                              
+                                    <button className='btnj'
+                                        onClick={() => VerProduto(1)}>
+                                        Ver Produto</button>
+                               
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,8 +160,8 @@ const Main = () => {
                 </div>
                 <div id="txtfale">
                     <div className="d-flex justify-content-center">
-                        <form className="form-fale row g-2 rounded-2 shadow " onSubmit={handleSubmit}>
-                            <a href="#faleconosco" className="h3 text-center">Fale Conosco</a>
+                        <form className="form-fale row g-2 rounded-2 shadow " onSubmit={handleSubmit} action='/main'>
+                            <p id='faleconosco' className="h3 text-center">Fale Conosco</p>
                             {!successful && (
                                 <>
                                     <div className="col-md-12 mb-3">
@@ -180,12 +193,15 @@ const Main = () => {
                                             onChange={handleChange}>
                                         </textarea>
                                     </div>
-                                    <div className="col-md-12 mb-3">
-                                        <label htmlFor="inputstatusMensagem" className="form-label mb-1 fw-bold">Sugestão, Elogio ou Crítica?:</label>
-                                        <input type="text" className="form-control" id="inputstatusMensagem"
-                                            name="statusMensagem"
-                                            value={formData.statusMensagem || ""}
-                                            onChange={handleChange} />
+                                    <div className="col-md-4 my-3">
+                                        <label htmlFor="inputAcesso" className="form-label mb-1 fw-bold">Acesso:</label>
+                                        <select id="inputAcesso" className="form-select"
+                                            name="nivelAcesso"
+                                            onChange={(e) => handleChange(e)} >
+                                            <option value={"TÉCNICO"}>TÉCNICO</option>
+                                            <option value={"ADMIN"}>ADMIN</option>
+                                            <option value={"OPERADOR"}>OPERADOR</option>
+                                        </select>
                                     </div>
                                     <div className="col-md-12 mb-1 d-flex flex-row-reverse">
                                         <button className="btn btn-primary">Enviar</button>

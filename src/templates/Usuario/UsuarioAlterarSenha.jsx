@@ -14,7 +14,7 @@ const UsuarioAlterarSenha = () => {
     const objectValues = {
         id: null,
         nome: "",
-        email: "",
+        re: "",
         nivelAcesso: ""
     };
 
@@ -80,19 +80,12 @@ const UsuarioAlterarSenha = () => {
     const goBack = (id) => {
         navigate(`/usuarioperfil/` + id)
     }
-
-    /*
-        A propriedade 'value' para um campo de formulário sem um manipulador 'onChange', 
-        faz com que o campo seja renderizado como somente de leitura. 
-        Se o campo deve ser mutável, deve ser utilizada a propriedade 'defaultValue'. 
-        Caso contrário, deve ser definida 'onChange' ou 'readOnly'.
-    */
     return (
         <div className="d-flex">
             <Sidebar />
             <div className="p-3 w-100">
                 <Header
-                    goto={'/home'}
+                    goto={'/login'}
                     title={'*** Alterar a Senha ***'}
                     logo={logo}
                 />
@@ -100,18 +93,15 @@ const UsuarioAlterarSenha = () => {
                     <form className="form-perfil row g-2 rounded-2 shadow" onSubmit={handleSubmit}>
                         {!successful && (
                             <>
-                                <div className="col-md-12">
-                                    <img src={usuario.foto ? usuario.foto : perfil} alt="..." />
-                                </div>
                                 <div className="col-md-12 mb-3">
                                     <label htmlFor="inputNome" className="form-label mb-1 fw-bold">Nome:</label>
                                     <input type="text" className="form-control text-center" id="inputNome" readOnly
                                         defaultValue={usuario.nome} />
                                 </div>
                                 <div className="col-md-12 mb-3">
-                                    <label htmlFor="inputEmail4" className="form-label mb-1 fw-bold">Email:</label>
-                                    <input type="email" className="form-control text-center" id="inputEmail4" readOnly
-                                        defaultValue={usuario.email} />
+                                    <label htmlFor="inputRe" className="form-label mb-1 fw-bold">RE:</label>
+                                    <input type="text" className="form-control text-center" id="inputRe" readOnly
+                                        defaultValue={usuario.re} />
                                 </div>
 
                                 <div className="mb-2">
